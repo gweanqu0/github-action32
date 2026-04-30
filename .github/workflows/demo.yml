@@ -39,11 +39,9 @@ jobs:
               run: echo hello 
             - uses: actions/download-artifact@v4
               with:
-                path: github-action32.txt
+                name: my-artifact
             - name: display github-action32.txt
               run: cat github-action32.txt
-
-       
     deploy_job:
         needs: build_job
         runs-on: macos-latest
