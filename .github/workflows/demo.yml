@@ -19,24 +19,25 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v4
         - name: create file
-          run: touch github-action32.txt
-        - name: print hello world
-          run: echo "Hello World"
-        - name: desplay readme file
-          run: cat README.md 
+          run: |
+            touch github-action32.txt
+            ls -la
+             echo "Hello World"
+             cat README.md
          
     build_job:
         needs: 
          - setup_job
-         - deploy_job
         runs-on: windows-latest
         steps: 
             - name: display hello
               run: echo hello 
+            - name: display github-action32.txt
+              run: cat github-action32.txt
 
        
     deploy_job:
-        needs: setup_job
+        needs: build_job
         runs-on: macos-latest
         steps:
             - run: echo hello mac
