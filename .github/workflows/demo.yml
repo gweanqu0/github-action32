@@ -9,8 +9,8 @@ on:
         branches:
             -main
             - dev
-    schedule:
-        - cron: "*/1 * * * *"             
+    # schedule:
+    #     # - cron: "*/1 * * * *"             
 
 jobs:
     setup_job:
